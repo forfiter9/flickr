@@ -8,15 +8,16 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class GetPostsUseCase @Inject constructor(
+class GetSortedPostsUseCase @Inject constructor(
     private val postsRepository: PostRepository
 ) {
     suspend fun invoke(): List<Post> = try {
-        postsRepository.getFromServer().items?.let{ posts ->
+        postsRepository.getFromServer().items?.let { posts ->
             posts.map { it.toDomainPost() }
+                .sortedBy { it.publishedDateInMillis }
         } ?: emptyList()
-    } catch(e: Exception) {
-        Log.e("Download exception", "invoke: $e", )
+    } catch (e: Exception) {
+        Log.e("Download exception", "invoke: $e")
         emptyList()
     }// TODO add better handling response
 }
