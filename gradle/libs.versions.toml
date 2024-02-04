@@ -5,6 +5,7 @@ fragment-ktx = "1.6.2"
 glide = "4.15.1"
 gson = "2.10.1"
 hilt-android = "2.44"
+jsoup = "1.13.1"
 junit-junit = "4.13.2"
 ktx = "1.12.0"
 lifecycle = "2.7.0"
@@ -36,6 +37,7 @@ glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt-android" }
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt-android" }
+jsoup = { module = "org.jsoup:jsoup", version.ref = "jsoup" }
 junit-junit = { module = "junit:junit", version.ref = "junit-junit" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 

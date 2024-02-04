@@ -23,7 +23,7 @@ class WallAdapter: ListAdapter<Post, WallAdapter.WallViewHolder>(
 
     override fun onBindViewHolder(holder: WallViewHolder, position: Int) {
         val item = getItem(position)
-        holder.title.text = item.title
+        holder.description.text = item.description
         item.image?.let {
             holder.image.apply {
                 Glide.with(context)
@@ -38,7 +38,7 @@ class WallAdapter: ListAdapter<Post, WallAdapter.WallViewHolder>(
 
     inner class WallViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val image: ImageView = itemView.findViewById(R.id.post_image)
-        val title: TextView = itemView.findViewById(R.id.post_title)
+        val description: TextView = itemView.findViewById(R.id.post_description)
     }
 
     fun interface OnPostClickListener {

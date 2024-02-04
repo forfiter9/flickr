@@ -28,11 +28,8 @@ class WallFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         configureView()
-
         viewModel.state.collectInLifeCycle(this){renderState(it)}
-
         viewModel.getPosts()
     }
 

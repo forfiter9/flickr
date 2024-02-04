@@ -1,5 +1,8 @@
 package com.slowit.model.rest
 
+import com.google.gson.annotations.SerializedName
+
 data class Media (
-    val m: String?
+    @SerializedName("m")
+    val imageLink: String?
 )

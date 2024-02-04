@@ -3,7 +3,8 @@
 
     <dimen name="post_image_width">150dp</dimen>
     <dimen name="post_image_height">150dp</dimen>
-    <dimen name="post_image_margin_top">12dp</dimen>
+    <dimen name="post_image_margin_top">20dp</dimen>
     <dimen name="post_title_margin_top">3dp</dimen>
     <dimen name="post_title_padding_horizontal">10dp</dimen>
+    <dimen name="wall_recycler_view_padding_bottom">10dp</dimen>
 </resources>
