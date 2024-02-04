@@ -32,5 +32,3 @@ class FlowObserverDelegate<T>(lifecycleOwner: LifecycleOwner, private val flow: 
 
 inline fun <reified T> Flow<T>.collectInLifeCycle(lifecycleOwner: LifecycleOwner, noinline collector: suspend (T) -> Unit) =
     FlowObserverDelegate(lifecycleOwner,this,collector)
-
-inline fun <reified T> Flow<T>.launchInLifeCycle(lifecycleOwner: LifecycleOwner) = FlowObserverDelegate(lifecycleOwner, this, {})

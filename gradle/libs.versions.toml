@@ -2,6 +2,8 @@
 androidx-junit = "1.1.5"
 espresso-core = "3.5.1"
 fragment-ktx = "1.6.2"
+gson = "2.10.1"
+hilt-android = "2.44"
 junit-junit = "4.13.2"
 ktx = "1.12.0"
 lifecycle = "2.7.0"
@@ -11,6 +13,9 @@ navigation = "2.7.6"
 junit = "4.13.2"
 junit-ext = "1.1.5"
 app-compat = "1.6.1"
+agp = "8.1.0-rc01"
+org-jetbrains-kotlin-android = "1.8.10"
+retrofit = "2.9.0"
 
 [libraries]
 androidx-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso-core" }
@@ -25,6 +30,13 @@ androidx-fragment = { group = "androidx.fragment", name = "fragment-ktx", versio
 androidx-constraint = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraint" }
 androidx-navigation = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigation" }
 androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigation" }
+converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt-android" }
+hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt-android" }
 junit-junit = { module = "junit:junit", version.ref = "junit-junit" }
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 
 [plugins]
+com-android-application = { id = "com.android.application", version.ref = "agp" }
+org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "org-jetbrains-kotlin-android" }
