@@ -39,6 +39,9 @@ dependencies {
 
     implementation(libs.androidx.ktx)
     implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.fragment.ktx)
+    implementation(libs.androidx.lifecycle)
+    implementation(libs.androidx.viewmodel)
     implementation(libs.android.material)
     testImplementation(libs.junit.junit)
 
