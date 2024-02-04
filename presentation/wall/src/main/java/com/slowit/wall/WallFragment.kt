@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.GridLayoutManager
 import com.slowit.wall.databinding.FragmentWallBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -27,19 +29,30 @@ class WallFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        configureView()
+
         viewModel.state.collectInLifeCycle(this){renderState(it)}
-        viewModel.events.collectInLifeCycle(this){renderEvent(it)}
 
         viewModel.getPosts()
     }
 
-    private fun renderEvent(wallEvents: WallEvents) {
-        when(wallEvents) {
-            is WallEvents.OpenExternalLink -> {}
+    private fun configureView() {
+        with(binding.postRecyclerView) {
+            layoutManager = if (context.isTablet()) GridLayoutManager(context, SPAN_COUNT_TABLET) else GridLayoutManager(context, SPAN_COUNT_PHONE)
+            adapter = WallAdapter().apply {
+                onPostClickListener = WallAdapter.OnPostClickListener {
+                    Toast.makeText(context,it.title,Toast.LENGTH_SHORT).show()
+                }
+            }
         }
     }
 
     private fun renderState(wallState: WallState) {
+        (binding.postRecyclerView.adapter as WallAdapter).submitList(wallState.posts)
+    }
 
+    companion object {
+        const val SPAN_COUNT_TABLET = 3
+        const val SPAN_COUNT_PHONE = 1
     }
 }

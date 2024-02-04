@@ -1,7 +1,9 @@
 package com.slowit.wall
 
+import com.slowit.model.post.Post
+
 data class WallState (
-    val posts: List<String>
+    val posts: List<Post>
 ) {
 
     companion object {

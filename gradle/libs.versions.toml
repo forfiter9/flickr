@@ -2,6 +2,7 @@
 androidx-junit = "1.1.5"
 espresso-core = "3.5.1"
 fragment-ktx = "1.6.2"
+glide = "4.15.1"
 gson = "2.10.1"
 hilt-android = "2.44"
 junit-junit = "4.13.2"
@@ -31,6 +32,7 @@ androidx-constraint = { group = "androidx.constraintlayout", name = "constraintl
 androidx-navigation = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigation" }
 androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigation" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt-android" }
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt-android" }

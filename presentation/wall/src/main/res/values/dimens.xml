@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="post_image_width">150dp</dimen>
+    <dimen name="post_image_height">150dp</dimen>
+    <dimen name="post_image_margin_top">12dp</dimen>
+    <dimen name="post_title_margin_top">3dp</dimen>
+    <dimen name="post_title_padding_horizontal">10dp</dimen>
+</resources>

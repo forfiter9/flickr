@@ -11,8 +11,10 @@ import javax.inject.Singleton
 class GetPostsUseCase @Inject constructor(
     private val postsRepository: PostRepository
 ) {
-    suspend fun invoke(): List<Post>? = try {
-        postsRepository.getFromServer().items?.map { it.toDomainPost() }
+    suspend fun invoke(): List<Post> = try {
+        postsRepository.getFromServer().items?.let{ posts ->
+            posts.map { it.toDomainPost() }
+        } ?: emptyList()
     } catch(e: Exception) {
         Log.e("Download exception", "invoke: $e", )
         emptyList()

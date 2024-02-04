@@ -45,10 +45,13 @@ dependencies {
     implementation(libs.androidx.lifecycle)
     implementation(libs.androidx.viewmodel)
     implementation(libs.android.material)
-    testImplementation(libs.junit.junit)
     implementation(libs.hilt.android)
+    implementation(libs.glide)
     kapt(libs.hilt.compiler)
 
+    testImplementation(libs.junit.junit)
     androidTestImplementation(libs.androidx.junit)
+
     implementation(project(":domain:usecase"))
+    implementation(project(":domain:model"))
 }
