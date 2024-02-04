@@ -15,8 +15,7 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideRetrofit(
-    ): Retrofit {
+    fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
             .baseUrl("https://api.flickr.com")
             .client(

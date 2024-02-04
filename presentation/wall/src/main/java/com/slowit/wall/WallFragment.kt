@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.slowit.wall.databinding.FragmentWallBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class WallFragment : Fragment() {
 
     private var _binding: FragmentWallBinding? = null
@@ -27,6 +29,8 @@ class WallFragment : Fragment() {
 
         viewModel.state.collectInLifeCycle(this){renderState(it)}
         viewModel.events.collectInLifeCycle(this){renderEvent(it)}
+
+        viewModel.getPosts()
     }
 
     private fun renderEvent(wallEvents: WallEvents) {

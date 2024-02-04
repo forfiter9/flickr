@@ -69,6 +69,7 @@ dependencies {
     kapt(libs.hilt.compiler)
 
     implementation(project(":presentation:wall"))
+    implementation(project(":app:network"))
 }
 
 kapt {

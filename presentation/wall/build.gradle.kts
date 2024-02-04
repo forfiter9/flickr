@@ -1,6 +1,8 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -44,6 +46,9 @@ dependencies {
     implementation(libs.androidx.viewmodel)
     implementation(libs.android.material)
     testImplementation(libs.junit.junit)
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
 
     androidTestImplementation(libs.androidx.junit)
+    implementation(project(":domain:usecase"))
 }
