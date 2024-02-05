@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.slowit.model.post.Post
 
 class WallAdapter: ListAdapter<Post, WallAdapter.WallViewHolder>(
@@ -28,6 +29,7 @@ class WallAdapter: ListAdapter<Post, WallAdapter.WallViewHolder>(
             holder.image.apply {
                 Glide.with(context)
                     .load(it)
+                    .diskCacheStrategy(DiskCacheStrategy.DATA)
                     .into(this)
             }
         }

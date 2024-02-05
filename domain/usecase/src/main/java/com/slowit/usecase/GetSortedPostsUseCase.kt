@@ -1,6 +1,5 @@
 package com.slowit.usecase
 
-import android.util.Log
 import com.slowit.model.post.Post
 import com.slowit.post.repository.PostRepository
 import com.slowit.usecase.converters.toDomainPost
