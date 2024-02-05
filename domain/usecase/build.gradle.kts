@@ -1,8 +1,8 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-    id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -37,13 +37,22 @@ dependencies {
     implementation(libs.androidx.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.android.material)
-    testImplementation(libs.junit.junit)
+    implementation(libs.jsoup)
 
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
-    implementation(libs.jsoup)
+
+    testImplementation(libs.junit.junit)
+    testImplementation(libs.mockk)
+    testImplementation(libs.androidx.espresso.core)
+    testImplementation(libs.kotest.assertions.core)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.kotest.assertions.core)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.mockk)
 
     androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.kotlinx.coroutines.test)
 
     implementation(project(":domain:model"))
     implementation(project(":data:source"))

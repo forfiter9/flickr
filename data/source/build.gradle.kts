@@ -1,8 +1,8 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-    id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -11,7 +11,6 @@ android {
 
     defaultConfig {
         minSdk = 29
-        targetSdk = 34
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -39,21 +38,20 @@ dependencies {
     implementation(libs.androidx.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.android.material)
-    testImplementation(libs.junit.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-
     implementation(libs.retrofit)
     implementation(libs.gson)
     implementation(libs.converter.gson)
-
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
-
     implementation(libs.androidx.room.runtime)
+    implementation(libs.hilt.android)
+
+    kapt(libs.hilt.compiler)
+    kapt(libs.androidx.room.compiler)
+
     annotationProcessor(libs.androidx.room.compiler)
 
-    kapt(libs.androidx.room.compiler)
+    testImplementation(libs.junit.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
 
     implementation(project(":data:model"))
 }

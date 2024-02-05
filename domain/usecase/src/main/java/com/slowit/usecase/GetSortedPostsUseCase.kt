@@ -14,9 +14,9 @@ class GetSortedPostsUseCase @Inject constructor(
         val posts = postsRepository.getFromServer()
         return if (posts?.isNotEmpty() == true) {
             postsRepository.cachePosts(posts)
-            posts.map { it.toDomainPost() }.sortedBy { it.publishedDateInMillis }
+            posts.map { it.toDomainPost() }.sortedByDescending { it.publishedDateInMillis }
         } else {
-            postsRepository.getCachedPosts().map { it.toDomainPost() }.sortedBy { it.publishedDateInMillis }
+            postsRepository.getCachedPosts().map { it.toDomainPost() }.sortedByDescending { it.publishedDateInMillis }
         }
     }
 }
