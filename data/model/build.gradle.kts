@@ -40,6 +40,9 @@ dependencies {
     implementation(libs.android.material)
     implementation(libs.gson)
     testImplementation(libs.junit.junit)
+
+    implementation(libs.androidx.room.runtime)
+    annotationProcessor(libs.androidx.room.compiler)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }

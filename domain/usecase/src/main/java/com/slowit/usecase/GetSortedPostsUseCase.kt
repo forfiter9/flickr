@@ -11,13 +11,13 @@ import javax.inject.Singleton
 class GetSortedPostsUseCase @Inject constructor(
     private val postsRepository: PostRepository
 ) {
-    suspend fun invoke(): List<Post> = try {
-        postsRepository.getFromServer().items?.let { posts ->
-            posts.map { it.toDomainPost() }
-                .sortedBy { it.publishedDateInMillis }
-        } ?: emptyList()
-    } catch (e: Exception) {
-        Log.e("Download exception", "invoke: $e")
-        emptyList()
-    }// TODO add better handling response
+    suspend fun invoke(): List<Post> {
+        val posts = postsRepository.getFromServer()
+        return if (posts?.isNotEmpty() == true) {
+            postsRepository.cachePosts(posts)
+            posts.map { it.toDomainPost() }.sortedBy { it.publishedDateInMillis }
+        } else {
+            postsRepository.getCachedPosts().map { it.toDomainPost() }.sortedBy { it.publishedDateInMillis }
+        }
+    }
 }

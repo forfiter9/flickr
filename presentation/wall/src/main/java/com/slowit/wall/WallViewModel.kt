@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.slowit.usecase.GetSortedPostsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -17,7 +18,7 @@ class WallViewModel @Inject constructor(
     private val _state: MutableStateFlow<WallState> = MutableStateFlow(WallState.EMPTY)
     val state: StateFlow<WallState> = _state
 
-    fun getPosts() = viewModelScope.launch {
+    fun getPosts() = viewModelScope.launch (Dispatchers.IO) {
         val postList = getSortedPostsUseCase.invoke()
         _state.value = _state.value.copy(
             posts = postList

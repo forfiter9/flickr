@@ -5,7 +5,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class PostDataSource @Inject constructor(
+class RestPostDataSource @Inject constructor(
     private val postService: PostService
 ){
     suspend fun getPosts() = postService.getPosts()
